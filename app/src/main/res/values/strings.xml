@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Android Testing</string>
     <string name="login">Login</string>
+    <string name="show_toast">Show Toast</string>
+    <string name="check">Check</string>
+    
+    <string name="item_text">item: %d</string>
 </resources>
