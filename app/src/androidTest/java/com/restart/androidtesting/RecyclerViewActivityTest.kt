@@ -8,12 +8,13 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.restart.androidtesting.databinding.ItemRecyclerBinding
-import com.restart.androidtesting.utils.AccessRecyclerViewItem
+import com.restart.androidtesting.utils.RecyclerViewTestUtils
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import android.content.Context
+import org.hamcrest.Matchers
 
 @RunWith(AndroidJUnit4::class)
 class RecyclerViewActivityTest
@@ -34,7 +35,7 @@ class RecyclerViewActivityTest
     @Test
     fun test1()
     {
-        onView(withId(R.id.rv)).perform(AccessRecyclerViewItem.atPosition<RecyclerAdapter.CustomRecyclerViewHolder>(position){
+        onView(withId(R.id.rv)).perform(RecyclerViewTestUtils.accessViewAtPosition<RecyclerAdapter.CustomRecyclerViewHolder>(position){
             it?.let {
                 val binding = ItemRecyclerBinding.bind(it)
 
