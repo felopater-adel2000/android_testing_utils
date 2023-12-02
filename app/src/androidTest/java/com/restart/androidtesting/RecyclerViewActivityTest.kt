@@ -14,6 +14,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import android.content.Context
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import com.restart.androidtesting.utils.ToastMatcher
 import org.hamcrest.Matchers
 
 @RunWith(AndroidJUnit4::class)
@@ -46,4 +48,16 @@ class RecyclerViewActivityTest
         onView(withId(R.id.tv_result)).check(matches(withText(context.getString(R.string.item_text, position))))
     }
 
+    @Test
+    fun testToastMessage()
+    {
+        onView(withId(R.id.rv)).perform(RecyclerViewTestUtils.accessViewAtPosition<RecyclerAdapter.CustomRecyclerViewHolder>(40){
+            it?.let {
+                val binding = ItemRecyclerBinding.bind(it)
+                binding.btn.performClick()
+            }
+        })
+
+        onView(withText("position: 40")).inRoot(ToastMatcher()).check(matches(isDisplayed()))
+    }
 }

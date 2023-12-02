@@ -2,6 +2,7 @@ package com.restart.androidtesting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.restart.androidtesting.databinding.ActivityRecyclerViewBinding
 
 class RecyclerViewActivity : AppCompatActivity(), RecyclerAdapter.ItemCallbacks
@@ -37,6 +38,8 @@ class RecyclerViewActivity : AppCompatActivity(), RecyclerAdapter.ItemCallbacks
     }
 
     override fun onClickButton(pos: Int) {
+
+        Toast.makeText(this, "position: $pos", Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemClick(position: Int) {
