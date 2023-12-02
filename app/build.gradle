@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // It is Important For Running Test cases with Espresso
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -47,9 +48,16 @@ dependencies {
     //
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
 
     // Hamcrest  -> Test Source Set
-    // for Assertion with Human meaning
+    // For Assertion with Human meaning
     testImplementation 'org.hamcrest:hamcrest:2.2'
+
+
+    // Espresso -> Android Test Source set
+    // For Test UI
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 }
