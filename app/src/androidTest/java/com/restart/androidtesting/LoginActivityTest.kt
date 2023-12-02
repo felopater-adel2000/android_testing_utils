@@ -1,6 +1,8 @@
 package com.restart.androidtesting
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.test.core.app.ApplicationProvider
@@ -58,5 +60,18 @@ class LoginActivityTest
 
         closeSoftKeyboard()
         onView(withId(R.id.tv_login)).check(matches(isEnabled()))
+    }
+
+    @Test
+    fun testBackground()
+    {
+        AccessView.withId<TextView>(R.id.tv_login){
+            val currentBackground = it.background as GradientDrawable
+
+            val expectedBackground = ContextCompat.getDrawable(context, R.drawable.background_inactive_button) as GradientDrawable
+
+            assertThat(currentBackground.color , `is`(expectedBackground.color))
+            assertThat(currentBackground.cornerRadius , `is`(expectedBackground.cornerRadius))
+        }
     }
 }
