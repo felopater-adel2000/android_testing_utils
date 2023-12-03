@@ -3,7 +3,7 @@ package com.restart.androidtesting.utils
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 
-class CustomMatcher<T> : Matcher<T>
+class MatcherImplementation<T> : Matcher<T>
 {
     override fun describeTo(description: Description?) {
 

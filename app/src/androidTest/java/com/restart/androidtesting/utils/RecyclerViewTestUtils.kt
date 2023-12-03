@@ -20,7 +20,7 @@ class RecyclerViewTestUtils
                 }
 
                 override fun getConstraints(): Matcher<View> {
-                    return CustomMatcher<View>()
+                    return MatcherImplementation<View>()
                 }
 
                 override fun perform(uiController: UiController?, view: View?) {
