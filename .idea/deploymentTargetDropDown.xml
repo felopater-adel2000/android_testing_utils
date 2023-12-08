@@ -11,13 +11,13 @@
       <entry key="clickOnBtnAndCheckTextWithAccessView()">
         <State />
       </entry>
-      <entry key="clickOnBtnWithTextAndCheckTextViewWithAccessView()">
-        <State />
-      </entry>
       <entry key="test()">
         <State />
       </entry>
       <entry key="testBackground()">
+        <State />
+      </entry>
+      <entry key="testWithMyBoundedMatcher()">
         <State />
       </entry>
     </value>
