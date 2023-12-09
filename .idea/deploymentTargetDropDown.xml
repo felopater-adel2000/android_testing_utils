@@ -8,13 +8,13 @@
       <entry key="app">
         <State />
       </entry>
-      <entry key="clickOnBtnAndCheckTextWithAccessView()">
-        <State />
-      </entry>
       <entry key="test()">
         <State />
       </entry>
       <entry key="testBackground()">
+        <State />
+      </entry>
+      <entry key="testTypeTextOnTextView()">
         <State />
       </entry>
       <entry key="testWithMyBoundedMatcher()">

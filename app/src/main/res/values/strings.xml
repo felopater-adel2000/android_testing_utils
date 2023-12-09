@@ -5,4 +5,13 @@
     <string name="check">Check</string>
 
     <string name="item_text">item: %d</string>
+    <string name="enjoy_drawer">Enjoy Drawer</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="option1">Option1</string>
+    <string name="option2">Option2</string>
+    <string name="option3">Option3</string>
+    <string name="option4">Option4</string>
+    <string name="option5">Option5</string>
 </resources>
