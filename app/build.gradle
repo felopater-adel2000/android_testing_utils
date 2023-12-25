@@ -71,4 +71,8 @@ dependencies {
     //Espresso Contrib
     // For Test UI Like (RecyclerView)
     androidTestImplementation "androidx.test.espresso:espresso-contrib:3.5.1"
+
+    //Espresso Intents
+    //For Test Intent
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
 }

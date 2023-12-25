@@ -14,4 +14,6 @@
     <string name="option3">Option3</string>
     <string name="option4">Option4</string>
     <string name="option5">Option5</string>
+    <string name="init_result">init Result</string>
+    <string name="call">Call</string>
 </resources>
