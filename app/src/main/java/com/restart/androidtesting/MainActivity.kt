@@ -2,25 +2,41 @@ package com.restart.androidtesting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import androidx.annotation.VisibleForTesting
 import com.restart.androidtesting.databinding.ActivityMainBinding
+import java.util.concurrent.atomic.AtomicBoolean
 
-class MainActivity : AppCompatActivity()
-{
+class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
 
     private lateinit var binding: ActivityMainBinding
 
-    private var displayNumber = 0
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    private val idlingResource = SimpleIdlingResource()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.ivArrowUp.setOnClickListener {
-            displayNumber++
-
-            binding.tvText.text = "displayNumber: $displayNumber"
+        binding.bntChangeText.setOnClickListener {
+            if (binding.etText.text.isNotEmpty()) {
+                binding.tvTitle.text = "Waiting For Message...."
+                idlingResource.setIdleState(false)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.tvTitle.text = binding.etText.text.toString().trim()
+                    idlingResource.setIdleState(true)
+                }, 2000)
+            }
         }
+
+
+
     }
+
+
+    @VisibleForTesting
+    fun getIdlingResource() = idlingResource
 }
