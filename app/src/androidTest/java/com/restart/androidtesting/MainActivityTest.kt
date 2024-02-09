@@ -26,22 +26,25 @@ class MainActivityTest{
     @get:Rule
     val activity = ActivityScenarioRule<MainActivity>(MainActivity::class.java)
 
-    var idlingResource: IdlingResource? = null
+    //var idlingResource: IdlingResource? = null
 
     @Before
     fun init()
     {
         // register Idling Resource
         activity.scenario.onActivity {
-            idlingResource = it.getIdlingResource()
-            IdlingRegistry.getInstance().register(idlingResource)
+            /*idlingResource = it.getIdlingResource()
+            IdlingRegistry.getInstance().register(idlingResource)*/
+
+            IdlingRegistry.getInstance().register(EspressoIdlingResource.getIdlingResource())
         }
     }
 
     @After
     fun finish()
     {
-        if(idlingResource != null) IdlingRegistry.getInstance().unregister(idlingResource)
+        //if(idlingResource != null) IdlingRegistry.getInstance().unregister(idlingResource)
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResource.getIdlingResource())
     }
 
     //This Tet Will Fail if i not register Idling Resource

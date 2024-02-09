@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import androidx.annotation.VisibleForTesting
+import androidx.test.espresso.idling.CountingIdlingResource
 import com.restart.androidtesting.databinding.ActivityMainBinding
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -14,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val idlingResource = SimpleIdlingResource()
+    //private val idlingResource = SimpleIdlingResource()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +26,10 @@ class MainActivity : AppCompatActivity() {
         binding.bntChangeText.setOnClickListener {
             if (binding.etText.text.isNotEmpty()) {
                 binding.tvTitle.text = "Waiting For Message...."
-                idlingResource.setIdleState(false)
+                EspressoIdlingResource.increment()
                 Handler(Looper.getMainLooper()).postDelayed({
                     binding.tvTitle.text = binding.etText.text.toString().trim()
-                    idlingResource.setIdleState(true)
+                    EspressoIdlingResource.decrement()
                 }, 2000)
             }
         }
@@ -37,6 +39,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    @VisibleForTesting
-    fun getIdlingResource() = idlingResource
+    /*@VisibleForTesting
+    fun getIdlingResource() = idlingResource*/
 }
